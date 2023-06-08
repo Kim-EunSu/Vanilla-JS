@@ -3,17 +3,18 @@ const hex = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D", "E", "F"];
 const btn = document.getElementById("btn");
 const color = document.querySelector(".color");
 
+//hex의 16진수 예: #$f15025
 btn.addEventListener("click", function () {
-  // 임의의 16진수 색상 설정
-  // => ex: $f15025
-  let hexColor = "#";
+  let hexrandom = "#";
   for (let i = 0; i < 6; i++) {
-    hexColor += hex[getRandomColor()];
+    hexrandom += hex[getRandomHex()];
   }
-  color.textContent = hexColor;
-  document.body.style.background = hexColor;
+  console.log(hexrandom);
+  document.body.style.backgroundColor = hexrandom;
+  color.textContent = hexrandom;
 });
 
-function getRandomColor() {
+//16진수를 random으로 만들기 위한 함수
+function getRandomHex() {
   return Math.floor(Math.random() * hex.length);
 }
